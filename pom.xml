@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.framework.cloud</groupId>
+    <artifactId>framework-cloud-user</artifactId>
+    <version>1.0.0</version>
+    <name>framework-cloud-user</name>
+    <description>用户</description>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>framework-cloud-user-api</module>
+        <module>framework-cloud-user-infrastructure</module>
+    </modules>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.framework.cloud</groupId>
+                <artifactId>pom-framework-cloud-starter</artifactId>
+                <version>${project.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+</project>
