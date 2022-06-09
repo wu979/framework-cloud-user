@@ -10,9 +10,7 @@
     </parent>
 
     <artifactId>framework-cloud-user-api</artifactId>
-    <version>1.0.0</version>
     <name>framework-cloud-user-api</name>
-    <description>用户接口层</description>
     <packaging>jar</packaging>
 
     <dependencies>

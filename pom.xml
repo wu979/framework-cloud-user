@@ -12,8 +12,16 @@
 
     <modules>
         <module>framework-cloud-user-api</module>
+        <module>framework-cloud-user-common</module>
+        <module>framework-cloud-user-domain</module>
         <module>framework-cloud-user-infrastructure</module>
     </modules>
+
+    <properties>
+        <common.framework.cloud.starter.version>1.0.0</common.framework.cloud.starter.version>
+        <mybatis.framework.cloud.starter.version>1.0.0</mybatis.framework.cloud.starter.version>
+    </properties>
+
 
     <dependencyManagement>
         <dependencies>

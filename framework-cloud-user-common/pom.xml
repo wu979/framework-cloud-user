@@ -9,15 +9,16 @@
         <version>1.0.0</version>
     </parent>
 
-    <artifactId>framework-cloud-user-infrastructure</artifactId>
-    <name>framework-cloud-user-infrastructure</name>
+    <artifactId>framework-cloud-user-common</artifactId>
+    <name>framework-cloud-user-common</name>
     <packaging>jar</packaging>
 
     <dependencies>
         <dependency>
             <groupId>com.framework.cloud</groupId>
-            <artifactId>framework-cloud-user-domain</artifactId>
-            <version>${version}</version>
+            <artifactId>common-framework-cloud-starter</artifactId>
+            <version>${common.framework.cloud.starter.version}</version>
+            <scope>compile</scope>
         </dependency>
     </dependencies>
 </project>
