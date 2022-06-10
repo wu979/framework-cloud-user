@@ -1,12 +1,12 @@
 package com.framework.cloud.user.api.controller;
 
-import com.framework.cloud.common.base.PageVO;
 import com.framework.cloud.common.group.Save;
 import com.framework.cloud.common.group.Update;
 import com.framework.cloud.common.result.R;
 import com.framework.cloud.common.result.Result;
-import com.framework.cloud.user.common.dto.*;
-import com.framework.cloud.user.common.vo.*;
+import com.framework.cloud.user.common.dto.PermissionDTO;
+import com.framework.cloud.user.common.vo.PermissionInfoVO;
+import com.framework.cloud.user.common.vo.PermissionTreeVO;
 import com.framework.cloud.user.domain.service.PermissionService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -33,10 +33,10 @@ public class PermissionController {
     @Autowired
     private PermissionService permissionService;
 
-    @ApiOperation(value = "权限列表")
-    @PostMapping(value = "/page")
-    public Result<PageVO<PermissionPageVO>> page(@ApiParam("条件") @RequestBody PermissionPageDTO param) {
-        return R.success(permissionService.page(param));
+    @ApiOperation(value = "权限树")
+    @GetMapping(value = "/tree")
+    public Result<List<PermissionTreeVO>> tree(@ApiParam("复合查询（名称、编号）") @RequestParam(value = "query", required = false) String query) {
+        return R.success(permissionService.tree(query));
     }
 
     @ApiOperation(value = "权限详情")

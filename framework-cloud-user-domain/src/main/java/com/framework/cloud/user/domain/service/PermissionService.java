@@ -1,9 +1,11 @@
 package com.framework.cloud.user.domain.service;
 
 import com.framework.cloud.common.base.PageVO;
-import com.framework.cloud.user.common.vo.*;
-import com.framework.cloud.user.common.dto.*;
-import com.framework.cloud.user.domain.entity.Permission;
+import com.framework.cloud.user.common.dto.PermissionDTO;
+import com.framework.cloud.user.common.dto.PermissionPageDTO;
+import com.framework.cloud.user.common.vo.PermissionInfoVO;
+import com.framework.cloud.user.common.vo.PermissionPageVO;
+import com.framework.cloud.user.common.vo.PermissionTreeVO;
 
 import java.util.List;
 
@@ -20,6 +22,14 @@ public interface PermissionService {
      * @return 数据
      */
     PageVO<PermissionPageVO> page(PermissionPageDTO param);
+
+    /**
+     * 权限 树
+     *
+     * @param query 复合查询（名称、编号）
+     * @return 树
+     */
+    List<PermissionTreeVO> tree(String query);
 
     /**
      * 详情

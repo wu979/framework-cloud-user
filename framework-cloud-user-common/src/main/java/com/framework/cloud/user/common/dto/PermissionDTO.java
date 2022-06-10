@@ -9,7 +9,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Null;
 
 /**
- * 权限 前端新增修改请求参数
+ * 权限 新增修改DTO
  *
  * @author wusiwei
  */

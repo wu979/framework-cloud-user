@@ -5,7 +5,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 /**
- * 用户 详情返回体
+ * 用户 详情VO
  *
  * @author wusiwei
  */

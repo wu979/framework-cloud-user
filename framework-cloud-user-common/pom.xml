@@ -20,5 +20,10 @@
             <version>${common.framework.cloud.starter.version}</version>
             <scope>compile</scope>
         </dependency>
+        <dependency>
+            <groupId>com.framework.cloud</groupId>
+            <artifactId>tree-framework-cloud-starter</artifactId>
+            <version>${tree.framework.cloud.starter.version}</version>
+        </dependency>
     </dependencies>
 </project>

@@ -5,7 +5,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 /**
- * 角色权限关联 分页返回包装体
+ * 角色权限关联 分页VO
  *
  * @author wusiwei
  */

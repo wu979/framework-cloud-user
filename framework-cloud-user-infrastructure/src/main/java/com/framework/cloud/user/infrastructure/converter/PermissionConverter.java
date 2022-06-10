@@ -1,10 +1,11 @@
 package com.framework.cloud.user.infrastructure.converter;
 
-import com.framework.cloud.user.common.vo.*;
+import com.framework.cloud.user.common.vo.PermissionInfoVO;
+import com.framework.cloud.user.common.vo.PermissionTreeVO;
 import com.framework.cloud.user.domain.entity.Permission;
 import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
-import org.mapstruct.Mappings;
+
+import java.util.List;
 
 /**
  * 权限 转换器
@@ -21,5 +22,11 @@ public interface PermissionConverter {
      * @return 详情
      */
     PermissionInfoVO info(Permission permission);
-
+    /**
+     * 权限 集合转换
+     *
+     * @param permissionList 实体
+     * @return 集合
+     */
+    List<PermissionTreeVO> list(List<Permission> permissionList);
 }

@@ -2,11 +2,15 @@ package com.framework.cloud.user.domain.service.impl;
 
 import cn.hutool.core.util.ObjectUtil;
 import com.framework.cloud.common.base.PageVO;
-import com.framework.cloud.user.common.dto.*;
-import com.framework.cloud.user.common.vo.*;
+import com.framework.cloud.tree.TreeFeature;
+import com.framework.cloud.user.common.dto.PermissionDTO;
+import com.framework.cloud.user.common.dto.PermissionPageDTO;
+import com.framework.cloud.user.common.vo.PermissionInfoVO;
+import com.framework.cloud.user.common.vo.PermissionPageVO;
+import com.framework.cloud.user.common.vo.PermissionTreeVO;
 import com.framework.cloud.user.domain.entity.Permission;
-import com.framework.cloud.user.domain.service.PermissionService;
 import com.framework.cloud.user.domain.repository.PermissionRepository;
+import com.framework.cloud.user.domain.service.PermissionService;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
@@ -23,10 +27,17 @@ import java.util.List;
 public class PermissionServiceImpl implements PermissionService {
 
     private final PermissionRepository permissionRepository;
+    private final TreeFeature<PermissionTreeVO, Long, Integer> treeFeature;
 
     @Override
     public PageVO<PermissionPageVO> page(PermissionPageDTO param) {
         return permissionRepository.page(param);
+    }
+
+    @Override
+    public List<PermissionTreeVO> tree(String query) {
+        List<PermissionTreeVO> tree = permissionRepository.listTree(query);
+        return treeFeature.childTree(tree);
     }
 
     @Override

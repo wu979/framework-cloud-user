@@ -1,12 +1,15 @@
 package com.framework.cloud.user.domain.entity;
 
-import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.annotation.IdType;
-import com.framework.cloud.common.base.BaseEntity;
 import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
+import com.framework.cloud.common.base.BaseTenant;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 /**
  * 角色 实体
@@ -19,7 +22,7 @@ import lombok.*;
 @NoArgsConstructor
 @TableName("t_role")
 @ApiModel(value="角色对象", description="角色")
-public class Role extends BaseEntity {
+public class Role extends BaseTenant {
 
     private static final long serialVersionUID = 1L;
 
