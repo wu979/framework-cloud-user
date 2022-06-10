@@ -1,25 +1,25 @@
 package com.framework.cloud.user.infrastructure.converter;
 
 import com.framework.cloud.user.common.vo.*;
-import com.framework.cloud.user.domain.entity.User;
+import com.framework.cloud.user.domain.entity.Permission;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.Mappings;
 
 /**
- * 用户 转换器
+ * 权限 转换器
  *
  * @author wusiwei
  */
 @Mapper(componentModel = "spring")
-public interface UserConverter {
+public interface PermissionConverter {
 
     /**
-     * 用户 详情转换
+     * 权限 详情转换
      *
-     * @param user 实体
+     * @param permission 实体
      * @return 详情
      */
-    UserInfoVO info(User user);
+    PermissionInfoVO info(Permission permission);
 
 }

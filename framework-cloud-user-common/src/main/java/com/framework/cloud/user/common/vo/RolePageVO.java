@@ -5,12 +5,12 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 /**
- * 用户 详情返回体
+ * 角色 分页返回包装体
  *
  * @author wusiwei
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
-public class UserInfoVO extends BaseVO {
+public class RolePageVO extends BaseVO {
 
 }

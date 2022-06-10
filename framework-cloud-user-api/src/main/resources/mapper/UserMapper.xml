@@ -14,7 +14,7 @@
         <result column="introduction" property="introduction"/>
         <result column="salt" property="salt"/>
         <result column="avatar" property="avatar"/>
-        <result column="user_status" property="userStatus"/>
+        <result column="status" property="status"/>
         <result column="tenant_id" property="tenantId"/>
         <result column="create_id" property="createId"/>
         <result column="update_id" property="updateId"/>
@@ -26,7 +26,7 @@
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        id, sex, email, mobile, username, nickname, birthday, introduction, salt, avatar, user_status, tenant_id, create_id, update_id, create_time, update_time, deleted, version
+        id, sex, email, mobile, username, nickname, birthday, introduction, salt, avatar, status, tenant_id, create_id, update_id, create_time, update_time, deleted, version
     </sql>
 
     <select id="page" resultType="com.framework.cloud.user.common.vo.UserPageVO">

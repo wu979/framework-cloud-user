@@ -56,6 +56,6 @@ public class User extends BaseEntity {
     private String avatar;
 
     @ApiModelProperty(value = "用户状态（ CANCELLATION=注销，NORMAL=正常，DISABLE=禁用 ）")
-    private String userStatus;
+    private String status;
 
 }
