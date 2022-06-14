@@ -7,7 +7,6 @@
     <artifactId>framework-cloud-user</artifactId>
     <version>1.0.0</version>
     <name>framework-cloud-user</name>
-    <description>用户</description>
     <packaging>pom</packaging>
 
     <modules>
