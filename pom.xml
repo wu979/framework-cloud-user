@@ -23,7 +23,6 @@
         <mybatis.framework.cloud.starter.version>1.0.0</mybatis.framework.cloud.starter.version>
     </properties>
 
-
     <dependencyManagement>
         <dependencies>
             <dependency>

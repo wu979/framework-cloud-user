@@ -2,6 +2,7 @@ package com.framework.cloud.user.domain.service.impl;
 
 import cn.hutool.core.util.ObjectUtil;
 import com.framework.cloud.common.base.PageVO;
+import com.framework.cloud.common.utils.CopierUtil;
 import com.framework.cloud.tree.TreeFeature;
 import com.framework.cloud.user.common.dto.PermissionDTO;
 import com.framework.cloud.user.common.dto.PermissionPageDTO;
@@ -12,7 +13,6 @@ import com.framework.cloud.user.domain.entity.Permission;
 import com.framework.cloud.user.domain.repository.PermissionRepository;
 import com.framework.cloud.user.domain.service.PermissionService;
 import lombok.AllArgsConstructor;
-import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -50,10 +50,10 @@ public class PermissionServiceImpl implements PermissionService {
         Permission entity;
         if (ObjectUtil.isNull(param.getId())) {
             entity = new Permission();
-            BeanUtils.copyProperties(param, entity);
+            CopierUtil.copyProperties(param, entity);
         } else {
             entity = permissionRepository.getById(param.getId());
-            BeanUtils.copyProperties(param, entity);
+            CopierUtil.copyProperties(param, entity);
         }
         return permissionRepository.saveOrUpdate(entity);
     }

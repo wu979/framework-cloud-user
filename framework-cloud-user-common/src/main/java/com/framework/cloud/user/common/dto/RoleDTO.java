@@ -21,4 +21,7 @@ public class RoleDTO {
     @ApiModelProperty(value = "主键")
     private Long id;
 
+    private String name;
+
+    private String code;
 }

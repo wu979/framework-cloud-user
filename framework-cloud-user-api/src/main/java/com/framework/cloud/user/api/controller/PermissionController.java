@@ -4,6 +4,7 @@ import com.framework.cloud.common.group.Save;
 import com.framework.cloud.common.group.Update;
 import com.framework.cloud.common.result.R;
 import com.framework.cloud.common.result.Result;
+import com.framework.cloud.user.api.application.feign.PayFeignService;
 import com.framework.cloud.user.common.dto.PermissionDTO;
 import com.framework.cloud.user.common.vo.PermissionInfoVO;
 import com.framework.cloud.user.common.vo.PermissionTreeVO;
@@ -16,6 +17,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.Resource;
 import javax.validation.Valid;
 import java.util.List;
 
@@ -32,6 +34,8 @@ public class PermissionController {
 
     @Autowired
     private PermissionService permissionService;
+    @Resource
+    private PayFeignService payFeignService;
 
     @ApiOperation(value = "权限树")
     @GetMapping(value = "/tree")
@@ -42,6 +46,7 @@ public class PermissionController {
     @ApiOperation(value = "权限详情")
     @GetMapping(value = "/{id}/info")
     public Result<PermissionInfoVO> info(@ApiParam("主键") @PathVariable("id") Long id) {
+        Result<Long> test = payFeignService.test(id);
         return R.success(permissionService.info(id));
     }
 

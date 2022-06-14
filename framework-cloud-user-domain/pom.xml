@@ -18,11 +18,13 @@
             <groupId>com.framework.cloud</groupId>
             <artifactId>mybatis-framework-cloud-starter</artifactId>
             <version>${mybatis.framework.cloud.starter.version}</version>
+            <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>com.framework.cloud</groupId>
             <artifactId>framework-cloud-user-common</artifactId>
             <version>${version}</version>
+            <scope>compile</scope>
         </dependency>
     </dependencies>
 </project>

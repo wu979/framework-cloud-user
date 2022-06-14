@@ -2,13 +2,15 @@ package com.framework.cloud.user.domain.service.impl;
 
 import cn.hutool.core.util.ObjectUtil;
 import com.framework.cloud.common.base.PageVO;
-import com.framework.cloud.user.common.dto.*;
-import com.framework.cloud.user.common.vo.*;
+import com.framework.cloud.common.utils.CopierUtil;
+import com.framework.cloud.user.common.dto.RolePermissionDTO;
+import com.framework.cloud.user.common.dto.RolePermissionPageDTO;
+import com.framework.cloud.user.common.vo.RolePermissionInfoVO;
+import com.framework.cloud.user.common.vo.RolePermissionPageVO;
 import com.framework.cloud.user.domain.entity.RolePermission;
-import com.framework.cloud.user.domain.service.RolePermissionService;
 import com.framework.cloud.user.domain.repository.RolePermissionRepository;
+import com.framework.cloud.user.domain.service.RolePermissionService;
 import lombok.AllArgsConstructor;
-import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -39,10 +41,10 @@ public class RolePermissionServiceImpl implements RolePermissionService {
         RolePermission entity;
         if (ObjectUtil.isNull(param.getId())) {
             entity = new RolePermission();
-            BeanUtils.copyProperties(param, entity);
+            CopierUtil.copyProperties(param, entity);
         } else {
             entity = rolePermissionRepository.getById(param.getId());
-            BeanUtils.copyProperties(param, entity);
+            CopierUtil.copyProperties(param, entity);
         }
         return rolePermissionRepository.saveOrUpdate(entity);
     }

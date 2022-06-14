@@ -18,6 +18,7 @@
             <groupId>com.framework.cloud</groupId>
             <artifactId>framework-cloud-user-domain</artifactId>
             <version>${version}</version>
+            <scope>compile</scope>
         </dependency>
     </dependencies>
 </project>
