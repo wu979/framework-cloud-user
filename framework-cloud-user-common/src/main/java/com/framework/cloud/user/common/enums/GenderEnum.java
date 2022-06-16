@@ -1,4 +1,4 @@
-package com.framework.cloud.user.infrastructure.enums;
+package com.framework.cloud.user.common.enums;
 
 /**
  *

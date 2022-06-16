@@ -5,17 +5,19 @@ import com.framework.cloud.common.group.Save;
 import com.framework.cloud.common.group.Update;
 import com.framework.cloud.common.result.R;
 import com.framework.cloud.common.result.Result;
-import com.framework.cloud.user.common.dto.*;
-import com.framework.cloud.user.common.vo.*;
+import com.framework.cloud.user.common.dto.RolePermissionDTO;
+import com.framework.cloud.user.common.dto.RolePermissionPageDTO;
+import com.framework.cloud.user.common.vo.RolePermissionInfoVO;
+import com.framework.cloud.user.common.vo.RolePermissionPageVO;
 import com.framework.cloud.user.domain.service.RolePermissionService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.Resource;
 import javax.validation.Valid;
 import java.util.List;
 
@@ -30,7 +32,7 @@ import java.util.List;
 @RequestMapping(path = "/rolePermission")
 public class RolePermissionController {
 
-    @Autowired
+    @Resource
     private RolePermissionService rolePermissionService;
 
     @ApiOperation(value = "角色权限关联列表")

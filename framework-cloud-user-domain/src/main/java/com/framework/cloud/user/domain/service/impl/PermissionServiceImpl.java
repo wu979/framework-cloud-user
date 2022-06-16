@@ -1,9 +1,11 @@
 package com.framework.cloud.user.domain.service.impl;
 
 import cn.hutool.core.util.ObjectUtil;
+import com.framework.cloud.cache.annotation.Lock;
 import com.framework.cloud.common.base.PageVO;
 import com.framework.cloud.common.utils.CopierUtil;
 import com.framework.cloud.tree.TreeFeature;
+import com.framework.cloud.user.common.constant.CacheConstant;
 import com.framework.cloud.user.common.dto.PermissionDTO;
 import com.framework.cloud.user.common.dto.PermissionPageDTO;
 import com.framework.cloud.user.common.vo.PermissionInfoVO;
@@ -41,6 +43,7 @@ public class PermissionServiceImpl implements PermissionService {
     }
 
     @Override
+    @Lock(key = "'" + CacheConstant.PERMISSION_INFO + "'+#id")
     public PermissionInfoVO info(Long id) {
         return permissionRepository.info(id);
     }

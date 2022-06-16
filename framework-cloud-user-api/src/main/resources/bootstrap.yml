@@ -3,8 +3,6 @@ server:
 spring:
   application:
     name: @artifactId@
-  main:
-    allow-bean-definition-overriding: true
   cloud:
     nacos:
       discovery:
@@ -38,3 +36,5 @@ spring:
           - {"dataId" : mybatis.yml, "group" : COMMON, "refresh" : true}
           - {"dataId" : feign.yml, "group" : COMMON, "refresh" : true}
           - {"dataId" : swagger.yml, "group" : COMMON, "refresh" : true}
+          - {"dataId" : executors.yml, "group" : COMMON, "refresh" : true}
+          - {"dataId" : cache.yml, "group" : COMMON, "refresh" : true}

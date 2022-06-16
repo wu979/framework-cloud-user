@@ -5,17 +5,19 @@ import com.framework.cloud.common.group.Save;
 import com.framework.cloud.common.group.Update;
 import com.framework.cloud.common.result.R;
 import com.framework.cloud.common.result.Result;
-import com.framework.cloud.user.common.dto.*;
-import com.framework.cloud.user.common.vo.*;
+import com.framework.cloud.user.common.dto.UserAuthDTO;
+import com.framework.cloud.user.common.dto.UserAuthPageDTO;
+import com.framework.cloud.user.common.vo.UserAuthInfoVO;
+import com.framework.cloud.user.common.vo.UserAuthPageVO;
 import com.framework.cloud.user.domain.service.UserAuthService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.Resource;
 import javax.validation.Valid;
 import java.util.List;
 
@@ -30,7 +32,7 @@ import java.util.List;
 @RequestMapping(path = "/userAuth")
 public class UserAuthController {
 
-    @Autowired
+    @Resource
     private UserAuthService userAuthService;
 
     @ApiOperation(value = "用户认证方式列表")
