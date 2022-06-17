@@ -4,7 +4,6 @@ import com.framework.cloud.common.group.Save;
 import com.framework.cloud.common.group.Update;
 import com.framework.cloud.common.result.R;
 import com.framework.cloud.common.result.Result;
-import com.framework.cloud.user.api.application.feign.PayFeignService;
 import com.framework.cloud.user.common.dto.PermissionDTO;
 import com.framework.cloud.user.common.vo.PermissionInfoVO;
 import com.framework.cloud.user.common.vo.PermissionTreeVO;
@@ -34,9 +33,6 @@ public class PermissionController {
     @Resource
     private PermissionService permissionService;
 
-    @Resource
-    private PayFeignService payFeignService;
-
     @ApiOperation(value = "权限树")
     @GetMapping(value = "/tree")
     public Result<List<PermissionTreeVO>> tree(@ApiParam("复合查询（名称、编号）") @RequestParam(value = "query", required = false) String query) {
@@ -46,8 +42,13 @@ public class PermissionController {
     @ApiOperation(value = "权限详情")
     @GetMapping(value = "/{id}/info")
     public Result<PermissionInfoVO> info(@ApiParam("主键") @PathVariable("id") Long id) {
-        Result<Long> test = payFeignService.test(id);
         return R.success(permissionService.info(id));
+    }
+
+    @ApiOperation(value = "权限详情")
+    @GetMapping(value = "/{id}/info2")
+    public Result<PermissionInfoVO> info2(@ApiParam("主键") @PathVariable("id") Long id) {
+        return R.success(permissionService.info2(id));
     }
 
     @ApiOperation(value = "权限新增")

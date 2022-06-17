@@ -40,6 +40,14 @@ public interface PermissionService {
     PermissionInfoVO info(Long id);
 
     /**
+     * 详情
+     *
+     * @param id 主键
+     * @return 是否成功
+     */
+    PermissionInfoVO info2(Long id);
+
+    /**
      * 新增/修改
      *
      * @param param 新增修改参数

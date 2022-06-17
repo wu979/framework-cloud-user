@@ -2,6 +2,7 @@ package com.framework.cloud.user.domain.service.impl;
 
 import cn.hutool.core.util.ObjectUtil;
 import com.framework.cloud.cache.annotation.Lock;
+import com.framework.cloud.cache.cache.RedisCache;
 import com.framework.cloud.common.base.PageVO;
 import com.framework.cloud.common.utils.CopierUtil;
 import com.framework.cloud.tree.TreeFeature;
@@ -28,8 +29,9 @@ import java.util.List;
 @AllArgsConstructor
 public class PermissionServiceImpl implements PermissionService {
 
-    private final PermissionRepository permissionRepository;
+    private final RedisCache redisCache;
     private final TreeFeature<PermissionTreeVO, Long, Integer> treeFeature;
+    private final PermissionRepository permissionRepository;
 
     @Override
     public PageVO<PermissionPageVO> page(PermissionPageDTO param) {
@@ -46,6 +48,11 @@ public class PermissionServiceImpl implements PermissionService {
     @Lock(key = "'" + CacheConstant.PERMISSION_INFO + "'+#id")
     public PermissionInfoVO info(Long id) {
         return permissionRepository.info(id);
+    }
+
+    @Override
+    public PermissionInfoVO info2(Long id) {
+        return redisCache.safeGet("p_info", PermissionInfoVO.class, PermissionInfoVO::new);
     }
 
     @Override

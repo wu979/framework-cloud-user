@@ -38,3 +38,6 @@ spring:
           - {"dataId" : swagger.yml, "group" : COMMON, "refresh" : true}
           - {"dataId" : executors.yml, "group" : COMMON, "refresh" : true}
           - {"dataId" : cache.yml, "group" : COMMON, "refresh" : true}
+logging:
+  file:
+    path: classpath:logback-spring.xml
