@@ -1,6 +1,7 @@
 package com.framework.cloud.user.common.enums;
 
 import com.baomidou.mybatisplus.annotation.IEnum;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
@@ -11,6 +12,7 @@ import lombok.Getter;
  */
 @Getter
 @AllArgsConstructor
+@JsonFormat(shape = JsonFormat.Shape.OBJECT)
 public enum UserStatus implements IEnum<String> {
 
     /** code 第三方枚举 value 数据库 label 汉译 */
