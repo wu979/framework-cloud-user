@@ -7,5 +7,6 @@ package com.framework.cloud.user.common.constant;
  */
 public class CacheConstant {
 
-    public static final String PERMISSION_INFO = "permission:info:";
+    public static final String PERMISSION = "permission:";
+
 }

@@ -45,28 +45,22 @@ public class PermissionController {
         return R.success(permissionService.info(id));
     }
 
-    @ApiOperation(value = "权限详情")
-    @GetMapping(value = "/{id}/info2")
-    public Result<PermissionInfoVO> info2(@ApiParam("主键") @PathVariable("id") Long id) {
-        return R.success(permissionService.info2(id));
-    }
-
     @ApiOperation(value = "权限新增")
     @PostMapping(value = "/save")
     public Result<Boolean> save(@ApiParam("权限") @Valid @Validated(Save.class) @RequestBody PermissionDTO param) {
-        return R.success(permissionService.saveUpdate(param));
+        return R.success(permissionService.save(param));
     }
 
     @ApiOperation(value = "权限修改")
     @PostMapping(value = "/update")
     public Result<Boolean> update(@ApiParam("权限") @Valid @Validated(Update.class) @RequestBody PermissionDTO param) {
-        return R.success(permissionService.saveUpdate(param));
+        return R.success(permissionService.update(param));
     }
 
     @ApiOperation(value = "权限删除")
-    @DeleteMapping(value = "/removes")
-    public Result<Boolean> removes(@ApiParam("主键") @RequestBody List<Long> ids) {
-        return R.success(permissionService.removes(ids));
+    @DeleteMapping(value = "/{id}/removes")
+    public Result<Boolean> removes(@ApiParam("主键") @PathVariable("id") Long id) {
+        return R.success(permissionService.remove(id));
     }
 
 }

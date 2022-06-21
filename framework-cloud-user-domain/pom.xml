@@ -13,6 +13,10 @@
     <name>framework-cloud-user-domain</name>
     <packaging>jar</packaging>
 
+    <properties>
+        <framework.cloud.platform.common.version>1.0.0</framework.cloud.platform.common.version>
+    </properties>
+
     <dependencies>
         <dependency>
             <groupId>com.framework.cloud</groupId>
@@ -26,8 +30,18 @@
         </dependency>
         <dependency>
             <groupId>com.framework.cloud</groupId>
+            <artifactId>feign-framework-cloud-starter</artifactId>
+            <version>${feign.framework.cloud.starter.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.framework.cloud</groupId>
             <artifactId>framework-cloud-user-common</artifactId>
             <version>${version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.framework.cloud</groupId>
+            <artifactId>framework-cloud-platform-common</artifactId>
+            <version>${framework.cloud.platform.common.version}</version>
         </dependency>
     </dependencies>
 </project>

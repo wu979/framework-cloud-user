@@ -1,12 +1,17 @@
 package com.framework.cloud.user.domain.entity;
 
-import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.annotation.IdType;
-import com.framework.cloud.common.base.BaseEntity;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
+import com.framework.cloud.common.base.BaseEntity;
+import com.framework.cloud.user.common.enums.PermissionType;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 /**
  * 权限 实体
@@ -34,7 +39,7 @@ public class Permission extends BaseEntity {
     private String code;
 
     @ApiModelProperty(value = "权限类型")
-    private String type;
+    private PermissionType type;
 
     @ApiModelProperty(value = "权限图标")
     private String icon;
@@ -42,12 +47,15 @@ public class Permission extends BaseEntity {
     @ApiModelProperty(value = "权限排序")
     private Integer sort;
 
+    @TableField("`level`")
     @ApiModelProperty(value = "权限层级")
     private Integer level;
 
+    @TableField("`left`")
     @ApiModelProperty(value = "权限左值")
     private Integer left;
 
+    @TableField("`right`")
     @ApiModelProperty(value = "权限右值")
     private Integer right;
 

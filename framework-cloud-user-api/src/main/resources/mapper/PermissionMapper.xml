@@ -31,9 +31,4 @@
         id, name, code, type, icon, sort, level, left, right, path, parent_id, trace_id, is_show, is_init, create_id, update_id, create_time, update_time, deleted, version
     </sql>
 
-    <select id="page" resultType="com.framework.cloud.user.common.vo.PermissionPageVO">
-        select
-            <include refid="Base_Column_List"/>
-        from t_permission
-    </select>
 </mapper>
