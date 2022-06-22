@@ -12,7 +12,6 @@
         <result column="nickname" property="nickname"/>
         <result column="birthday" property="birthday"/>
         <result column="introduction" property="introduction"/>
-        <result column="salt" property="salt"/>
         <result column="avatar" property="avatar"/>
         <result column="status" property="status"/>
         <result column="tenant_id" property="tenantId"/>
@@ -26,12 +25,22 @@
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        id, sex, email, mobile, username, nickname, birthday, introduction, salt, avatar, status, tenant_id, create_id, update_id, create_time, update_time, deleted, version
+        id, sex, email, mobile, username, nickname, birthday, introduction, avatar, status, tenant_id, create_id, update_id, create_time, update_time, deleted, version
     </sql>
 
     <select id="page" resultType="com.framework.cloud.user.common.vo.UserPageVO">
         select
             <include refid="Base_Column_List"/>
         from t_user
+    </select>
+
+    <select id="user" resultType="com.framework.cloud.user.common.vo.UserIdentifierVO">
+        select
+            u.id, u.email, u.mobile, u.username, u.nickname, u.status, u.tenant_id,
+            ua.identity_type, ua.identifier, ua.credential ,ua.is_verified, ua.is_binding
+        from t_user u
+        inner join t_user_auth ua on u.id = ua.user_id
+        where u.deleted = 1 and ua.deleted = 1
+        and ua.tenant_id = #{tenantId,jdbcType=BIGINT} and ua.identifier = #{identifier,jdbcType=VARCHAR}
     </select>
 </mapper>

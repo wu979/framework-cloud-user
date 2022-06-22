@@ -1,29 +1,25 @@
 package com.framework.cloud.user.common.vo;
 
-import com.framework.cloud.common.base.BaseVO;
 import com.framework.cloud.user.common.enums.UserIdentityType;
-import com.framework.cloud.user.common.enums.UserSexType;
 import com.framework.cloud.user.common.enums.UserStatus;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
-
-import java.time.LocalDate;
+import lombok.experimental.FieldNameConstants;
 
 /**
- * 用户 详情VO
+ *
  *
  * @author wusiwei
  */
 @Data
-@EqualsAndHashCode(callSuper = true)
-public class UserInfoVO extends BaseVO {
+@FieldNameConstants
+public class UserIdentifierVO {
 
     @ApiModelProperty(value = "主键")
     private Long id;
 
-    @ApiModelProperty(value = "性别")
-    private UserSexType sex;
+    @ApiModelProperty(value = "租户id")
+    private Long tenantId;
 
     @ApiModelProperty(value = "邮箱")
     private String email;
@@ -37,14 +33,17 @@ public class UserInfoVO extends BaseVO {
     @ApiModelProperty(value = "昵称")
     private String nickname;
 
-    @ApiModelProperty(value = "生日")
-    private LocalDate birthday;
+    @ApiModelProperty(value = "唯一标识")
+    private String identifier;
 
-    @ApiModelProperty(value = "个人简介")
-    private String introduction;
+    @ApiModelProperty(value = "授权凭证")
+    private String credential;
 
-    @ApiModelProperty(value = "头像url")
-    private String avatar;
+    @ApiModelProperty(value = "是否已经验证")
+    private Boolean isVerified;
+
+    @ApiModelProperty(value = "是否绑定中")
+    private Boolean isBinding;
 
     @ApiModelProperty(value = "用户状态（ CANCELLATION=注销，NORMAL=正常，DISABLE=禁用 ）")
     private UserStatus status;

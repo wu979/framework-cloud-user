@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.framework.cloud.common.base.BaseTenant;
+import com.framework.cloud.user.common.enums.UserSexType;
 import com.framework.cloud.user.common.enums.UserStatus;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -34,7 +35,7 @@ public class User extends BaseTenant {
     private Long id;
 
     @ApiModelProperty(value = "性别")
-    private String sex;
+    private UserSexType sex;
 
     @ApiModelProperty(value = "邮箱")
     private String email;
@@ -53,9 +54,6 @@ public class User extends BaseTenant {
 
     @ApiModelProperty(value = "个人简介")
     private String introduction;
-
-    @ApiModelProperty(value = "盐值")
-    private String salt;
 
     @ApiModelProperty(value = "头像url")
     private String avatar;

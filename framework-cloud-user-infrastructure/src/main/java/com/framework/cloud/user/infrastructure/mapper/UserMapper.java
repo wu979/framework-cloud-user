@@ -17,4 +17,6 @@ public interface UserMapper extends BaseMapper<User> {
 
     IPage<UserPageVO> page(@Param("pg") Page<UserPageVO> page, @Param("param") UserPageDTO param);
 
+    UserIdentifierVO user(@Param("tenantId") Long tenantId, @Param("identifier") String identifier);
+
 }

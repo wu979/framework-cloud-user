@@ -8,6 +8,8 @@ import com.framework.cloud.user.common.dto.*;
 import com.framework.cloud.user.domain.entity.Role;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.List;
+
 /**
  * 角色 数据库接口
  *
@@ -17,4 +19,5 @@ public interface RoleMapper extends BaseMapper<Role> {
 
     IPage<RolePageVO> page(@Param("pg") Page<RolePageVO> page, @Param("param") RolePageDTO param);
 
+    List<Role> list(@Param("userId") Long userId);
 }

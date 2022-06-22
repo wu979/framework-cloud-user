@@ -13,10 +13,6 @@
     <name>framework-cloud-user-domain</name>
     <packaging>jar</packaging>
 
-    <properties>
-        <framework.cloud.platform.common.version>1.0.0</framework.cloud.platform.common.version>
-    </properties>
-
     <dependencies>
         <dependency>
             <groupId>com.framework.cloud</groupId>

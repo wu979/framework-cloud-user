@@ -14,9 +14,4 @@
         role_id, user_id, tenant_id
     </sql>
 
-    <select id="page" resultType="com.framework.cloud.user.common.vo.UserRolePageVO">
-        select
-            <include refid="Base_Column_List"/>
-        from t_user_role
-    </select>
 </mapper>

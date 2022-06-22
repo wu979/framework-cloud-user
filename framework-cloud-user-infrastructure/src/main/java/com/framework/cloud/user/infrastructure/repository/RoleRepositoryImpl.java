@@ -1,5 +1,6 @@
 package com.framework.cloud.user.infrastructure.repository;
 
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.framework.cloud.common.base.PageParam;
@@ -32,6 +33,18 @@ public class RoleRepositoryImpl extends BaseRepositoryImpl<RoleMapper, Role> imp
         Page<RolePageVO> page = PageParam.buildOrder(param);
         IPage<RolePageVO> list = this.baseMapper.page(page, param);
         return PageVO.page(list);
+    }
+
+    @Override
+    public List<Role> list(Long userId) {
+        return this.baseMapper.list(userId);
+    }
+
+    @Override
+    public Role infoByCode(String code) {
+        LambdaQueryWrapper<Role> wrapper = new LambdaQueryWrapper<>();
+        wrapper.eq(Role::getCode, code);
+        return this.getOne(wrapper);
     }
 
     @Override

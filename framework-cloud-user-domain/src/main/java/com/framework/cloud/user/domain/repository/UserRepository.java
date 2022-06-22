@@ -29,4 +29,12 @@ public interface UserRepository extends BaseRepository<User> {
      */
     UserInfoVO info(Long id);
 
+    /**
+     * 查询用户
+     *
+     * @param tenantId 租户id
+     * @param identifier 唯一凭证
+     * @return 用户
+     */
+    UserIdentifierVO user(Long tenantId, String identifier);
 }

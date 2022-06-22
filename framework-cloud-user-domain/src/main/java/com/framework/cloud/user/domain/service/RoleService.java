@@ -1,9 +1,9 @@
 package com.framework.cloud.user.domain.service;
 
 import com.framework.cloud.common.base.PageVO;
-import com.framework.cloud.user.common.vo.*;
-import com.framework.cloud.user.common.dto.*;
-import com.framework.cloud.user.domain.entity.Role;
+import com.framework.cloud.user.common.dto.RoleDTO;
+import com.framework.cloud.user.common.dto.RolePageDTO;
+import com.framework.cloud.user.common.vo.RolePageVO;
 
 import java.util.List;
 
@@ -22,12 +22,12 @@ public interface RoleService {
     PageVO<RolePageVO> page(RolePageDTO param);
 
     /**
-     * 详情
+     * 根据用户id获取角色标识列表
      *
-     * @param id 主键
-     * @return 是否成功
+     * @param userId 用户id
+     * @return 角色标识列表
      */
-    RoleInfoVO info(Long id);
+    List<String> list(Long userId);
 
     /**
      * 新增/修改
@@ -40,9 +40,9 @@ public interface RoleService {
     /**
      * 删除
      *
-     * @param ids 主键
+     * @param id 主键
      * @return 是否成功
      */
-    boolean removes(List<Long> ids);
+    boolean remove(Long id);
 
 }

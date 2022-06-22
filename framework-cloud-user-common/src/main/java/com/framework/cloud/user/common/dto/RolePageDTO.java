@@ -1,6 +1,7 @@
 package com.framework.cloud.user.common.dto;
 
 import com.framework.cloud.common.base.BasePage;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -12,5 +13,11 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode(callSuper = true)
 public class RolePageDTO extends BasePage {
+
+    @ApiModelProperty(value = "角色名称")
+    private String name;
+
+    @ApiModelProperty(value = "角色标识")
+    private String code;
 
 }

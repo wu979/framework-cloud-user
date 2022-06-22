@@ -27,9 +27,4 @@
         id, user_id, identity_type, identifier, credential, is_verified, is_binding, verified_time, un_binding_time, tenant_id, create_id, update_id, create_time, update_time, deleted, version
     </sql>
 
-    <select id="page" resultType="com.framework.cloud.user.common.vo.UserAuthPageVO">
-        select
-            <include refid="Base_Column_List"/>
-        from t_user_auth
-    </select>
 </mapper>

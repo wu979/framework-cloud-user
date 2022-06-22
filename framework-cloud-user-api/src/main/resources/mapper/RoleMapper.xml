@@ -18,12 +18,27 @@
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        id, name, code, tenant_id, create_id, update_id, create_time, update_time, deleted, version
+        r.id, r.name, r.code, r.tenant_id, r.create_id, r.update_id, r.create_time, r.update_time, r.deleted, r.version
     </sql>
 
     <select id="page" resultType="com.framework.cloud.user.common.vo.RolePageVO">
         select
             <include refid="Base_Column_List"/>
-        from t_role
+        from t_role r
+        where r.deleted = 1
+        <if test="param.name != null and param.name != ''">
+            and r.name like(#{param.name,jdbcType=VARCHAR}, '%')
+        </if>
+        <if test="param.code != null and param.code != ''">
+            and r.code like(#{param.code,jdbcType=VARCHAR}, '%')
+        </if>
+    </select>
+
+    <select id="list" resultMap="BaseResultMap">
+        select
+            <include refid="Base_Column_List"/>
+        from t_role r
+        inner join t_user_role ur on r.id = ur.role_id
+        and ur.user_id = #{userId,jdbcType=BIGINT}
     </select>
 </mapper>

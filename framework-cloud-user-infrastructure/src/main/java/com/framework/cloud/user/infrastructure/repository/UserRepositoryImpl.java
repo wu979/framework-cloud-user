@@ -5,16 +5,16 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.framework.cloud.common.base.PageParam;
 import com.framework.cloud.common.base.PageVO;
 import com.framework.cloud.mybatis.repository.impl.BaseRepositoryImpl;
-import com.framework.cloud.user.common.vo.*;
-import com.framework.cloud.user.common.dto.*;
+import com.framework.cloud.user.common.dto.UserPageDTO;
+import com.framework.cloud.user.common.vo.UserIdentifierVO;
+import com.framework.cloud.user.common.vo.UserInfoVO;
+import com.framework.cloud.user.common.vo.UserPageVO;
 import com.framework.cloud.user.domain.entity.User;
 import com.framework.cloud.user.domain.repository.UserRepository;
 import com.framework.cloud.user.infrastructure.converter.UserConverter;
 import com.framework.cloud.user.infrastructure.mapper.UserMapper;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Repository;
-
-import java.util.List;
 
 /**
  * 用户 数据实现层
@@ -38,5 +38,10 @@ public class UserRepositoryImpl extends BaseRepositoryImpl<UserMapper, User> imp
     public UserInfoVO info(Long id) {
         User entity = this.getById(id);
         return userConverter.info(entity);
+    }
+
+    @Override
+    public UserIdentifierVO user(Long tenantId, String identifier) {
+        return this.baseMapper.user(tenantId, identifier);
     }
 }

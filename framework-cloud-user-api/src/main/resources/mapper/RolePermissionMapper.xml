@@ -13,10 +13,4 @@
     <sql id="Base_Column_List">
         role_id, permission_id, tenant_id
     </sql>
-
-    <select id="page" resultType="com.framework.cloud.user.common.vo.RolePermissionPageVO">
-        select
-            <include refid="Base_Column_List"/>
-        from t_role_permission
-    </select>
 </mapper>

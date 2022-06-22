@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.framework.cloud.common.base.BaseTenant;
+import com.framework.cloud.user.common.enums.UserIdentityType;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
@@ -34,7 +35,7 @@ public class UserAuth extends BaseTenant {
     private Long userId;
 
     @ApiModelProperty(value = "身份类型（MOBILE:用户名,USERNAME:手机号,EMAIL:邮箱,WX:微信,ZFB:支付宝）")
-    private String identityType;
+    private UserIdentityType identityType;
 
     @ApiModelProperty(value = "唯一标识")
     private String identifier;

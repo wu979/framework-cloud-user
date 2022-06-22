@@ -7,7 +7,6 @@ import com.framework.cloud.common.result.R;
 import com.framework.cloud.common.result.Result;
 import com.framework.cloud.user.common.dto.RoleDTO;
 import com.framework.cloud.user.common.dto.RolePageDTO;
-import com.framework.cloud.user.common.vo.RoleInfoVO;
 import com.framework.cloud.user.common.vo.RolePageVO;
 import com.framework.cloud.user.domain.service.RoleService;
 import io.swagger.annotations.Api;
@@ -41,10 +40,10 @@ public class RoleController {
         return R.success(roleService.page(param));
     }
 
-    @ApiOperation(value = "角色详情")
-    @GetMapping(value = "/{id}/info")
-    public Result<RoleInfoVO> info(@ApiParam("主键") @PathVariable("id") Long id) {
-        return R.success(roleService.info(id));
+    @ApiOperation(value = "用户角色列表")
+    @GetMapping(value = "/{userId}/role/list")
+    public Result<List<String>> list(@ApiParam("用户主键") @PathVariable("userId") Long userId) {
+        return R.list(roleService.list(userId));
     }
 
     @ApiOperation(value = "角色新增")
@@ -60,9 +59,9 @@ public class RoleController {
     }
 
     @ApiOperation(value = "角色删除")
-    @DeleteMapping(value = "/removes")
-    public Result<Boolean> removes(@ApiParam("主键") @RequestBody List<Long> ids) {
-        return R.success(roleService.removes(ids));
+    @DeleteMapping(value = "/{id}/removes")
+    public Result<Boolean> remove(@ApiParam("主键") @PathVariable("id") Long id) {
+        return R.success(roleService.remove(id));
     }
 
 }

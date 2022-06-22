@@ -7,6 +7,7 @@ import com.framework.cloud.common.result.R;
 import com.framework.cloud.common.result.Result;
 import com.framework.cloud.user.common.dto.UserDTO;
 import com.framework.cloud.user.common.dto.UserPageDTO;
+import com.framework.cloud.user.common.vo.UserIdentifierVO;
 import com.framework.cloud.user.common.vo.UserInfoVO;
 import com.framework.cloud.user.common.vo.UserPageVO;
 import com.framework.cloud.user.domain.service.UserService;
@@ -45,6 +46,13 @@ public class UserController {
     @GetMapping(value = "/{id}/info")
     public Result<UserInfoVO> info(@ApiParam("主键") @PathVariable("id") Long id) {
         return R.success(userService.info(id));
+    }
+
+    @ApiOperation(value = "用户凭证查询")
+    @GetMapping(value = "/{tenantId}/{identifier}/user")
+    public Result<UserIdentifierVO> user(@ApiParam("租户ID") @PathVariable("tenantId") Long tenantId,
+                                         @ApiParam("唯一凭证") @PathVariable("identifier") String identifier) {
+        return R.success(userService.user(tenantId, identifier));
     }
 
     @ApiOperation(value = "用户新增")
