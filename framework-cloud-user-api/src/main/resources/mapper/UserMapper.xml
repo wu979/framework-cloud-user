@@ -40,7 +40,7 @@
             ua.identity_type, ua.identifier, ua.credential ,ua.is_verified, ua.is_binding
         from t_user u
         inner join t_user_auth ua on u.id = ua.user_id
-        where u.deleted = 1 and ua.deleted = 1
+        where u.deleted = 1 and ua.deleted = 1 and u.tenant_id = #{tenantId,jdbcType=BIGINT}
         and ua.tenant_id = #{tenantId,jdbcType=BIGINT} and ua.identifier = #{identifier,jdbcType=VARCHAR}
     </select>
 </mapper>

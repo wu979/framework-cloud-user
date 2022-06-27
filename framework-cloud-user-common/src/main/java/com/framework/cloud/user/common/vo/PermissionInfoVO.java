@@ -1,6 +1,5 @@
 package com.framework.cloud.user.common.vo;
 
-import com.framework.cloud.common.annotation.CacheTarget;
 import com.framework.cloud.common.base.BaseVO;
 import com.framework.cloud.user.common.enums.PermissionType;
 import io.swagger.annotations.ApiModelProperty;
@@ -13,7 +12,6 @@ import lombok.EqualsAndHashCode;
  * @author wusiwei
  */
 @Data
-@CacheTarget
 @EqualsAndHashCode(callSuper = true)
 public class PermissionInfoVO extends BaseVO {
 

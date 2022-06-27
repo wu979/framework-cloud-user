@@ -4,7 +4,6 @@ import com.framework.cloud.user.common.enums.UserIdentityType;
 import com.framework.cloud.user.common.enums.UserStatus;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
-import lombok.experimental.FieldNameConstants;
 
 /**
  *
@@ -12,7 +11,6 @@ import lombok.experimental.FieldNameConstants;
  * @author wusiwei
  */
 @Data
-@FieldNameConstants
 public class UserIdentifierVO {
 
     @ApiModelProperty(value = "主键")
