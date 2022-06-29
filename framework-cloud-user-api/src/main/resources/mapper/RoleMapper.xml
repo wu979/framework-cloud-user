@@ -38,7 +38,7 @@
         select
             <include refid="Base_Column_List"/>
         from t_role r
-        inner join t_user_role ur on r.id = ur.role_id
-        and ur.user_id = #{userId,jdbcType=BIGINT}
+        inner join t_user_role tur on r.id = tur.role_id
+        where tur.user_id = #{userId,jdbcType=BIGINT}
     </select>
 </mapper>

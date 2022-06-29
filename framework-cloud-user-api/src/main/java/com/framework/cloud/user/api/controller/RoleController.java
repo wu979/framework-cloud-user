@@ -41,7 +41,7 @@ public class RoleController {
     }
 
     @ApiOperation(value = "用户角色列表")
-    @GetMapping(value = "/{userId}/role/list")
+    @GetMapping(value = "/{userId}/user/list")
     public Result<List<String>> list(@ApiParam("用户主键") @PathVariable("userId") Long userId) {
         return R.list(roleService.list(userId));
     }
