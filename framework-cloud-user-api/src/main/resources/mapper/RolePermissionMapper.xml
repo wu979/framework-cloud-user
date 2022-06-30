@@ -16,16 +16,16 @@
 
     <select id="tree" resultType="com.framework.cloud.user.common.vo.RolePermissionTreeVO">
         select
-            p.id, p.name, p.code, p.type, p.level,
-            p.left, p.right, p.path, p.parent_id, p.trace_id, rp.role_id,
+            tp.id, tp.name, tp.code, tp.type, tp.`level`,
+            tp.`left`, tp.`right`, tp.path, tp.parent_id, tp.trace_id, rp.role_id,
             rp.role_id is not null as is_binding
-        from t_permission p
+        from t_permission tp
         left join (
             select
                 trp.permission_id, trp.role_id
             from t_role_permission trp
             where trp.role_id = #{roleId,jdbcType=BIGINT}
-        ) rp on p.id = rp.permission_id
-        where p.deleted = 1
+        ) rp on tp.id = rp.permission_id
+        where tp.deleted = 1
     </select>
 </mapper>
