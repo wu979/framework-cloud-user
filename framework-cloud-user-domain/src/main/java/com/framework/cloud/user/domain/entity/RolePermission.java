@@ -27,4 +27,6 @@ public class RolePermission {
     @ApiModelProperty(value = "权限id")
     private Long permissionId;
 
+    @ApiModelProperty(value = "租户id")
+    private Long tenantId;
 }

@@ -13,4 +13,19 @@
     <sql id="Base_Column_List">
         role_id, permission_id, tenant_id
     </sql>
+
+    <select id="tree" resultType="com.framework.cloud.user.common.vo.RolePermissionTreeVO">
+        select
+            p.id, p.name, p.code, p.type, p.level,
+            p.left, p.right, p.path, p.parent_id, p.trace_id, rp.role_id,
+            rp.role_id is not null as is_binding
+        from t_permission p
+        left join (
+            select
+                trp.permission_id, trp.role_id
+            from t_role_permission trp
+            where trp.role_id = #{roleId,jdbcType=BIGINT}
+        ) rp on p.id = rp.permission_id
+        where p.deleted = 1
+    </select>
 </mapper>
