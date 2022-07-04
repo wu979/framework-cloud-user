@@ -31,6 +31,11 @@
         </dependency>
         <dependency>
             <groupId>com.framework.cloud</groupId>
+            <artifactId>elasticsearch-framework-cloud-starter</artifactId>
+            <version>${elasticsearch.framework.cloud.starter.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.framework.cloud</groupId>
             <artifactId>framework-cloud-user-common</artifactId>
             <version>${version}</version>
         </dependency>
