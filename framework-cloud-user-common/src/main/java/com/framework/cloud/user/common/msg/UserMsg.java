@@ -13,6 +13,10 @@ import lombok.Getter;
 public enum UserMsg {
 
     /** 异常消息 */
+    USER_NOT_FOUND("账号或密码错误"),
+    USER_VERIFIED("认证后授权"),
+    USER_BINDING("绑定后授权"),
+
     PERMISSION_EXIST("权限标识已存在"),
     PERMISSION_PARENT_NOT_FOUND("父级权限未找到"),
     PERMISSION_DELETE_ERROR("删除权限失败"),

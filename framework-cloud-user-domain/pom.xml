@@ -34,10 +34,5 @@
             <artifactId>framework-cloud-user-common</artifactId>
             <version>${version}</version>
         </dependency>
-        <dependency>
-            <groupId>com.framework.cloud</groupId>
-            <artifactId>framework-cloud-platform-common</artifactId>
-            <version>${framework.cloud.platform.common.version}</version>
-        </dependency>
     </dependencies>
 </project>

@@ -1,11 +1,13 @@
 package com.framework.cloud.user.domain.service.impl;
-import com.framework.cloud.mybatis.utils.SnowflakeUtil;
-import com.framework.cloud.user.common.enums.UserIdentityType;
 import com.framework.cloud.common.base.PageVO;
+import com.framework.cloud.common.utils.AssertUtil;
+import com.framework.cloud.mybatis.utils.SnowflakeUtil;
 import com.framework.cloud.user.common.dto.UserDTO;
 import com.framework.cloud.user.common.dto.UserPageDTO;
+import com.framework.cloud.user.common.enums.UserIdentityType;
 import com.framework.cloud.user.common.enums.UserSexType;
 import com.framework.cloud.user.common.enums.UserStatus;
+import com.framework.cloud.user.common.msg.UserMsg;
 import com.framework.cloud.user.common.vo.UserIdentifierVO;
 import com.framework.cloud.user.common.vo.UserInfoVO;
 import com.framework.cloud.user.common.vo.UserPageVO;
@@ -44,7 +46,12 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserIdentifierVO user(Long tenantId, String identifier) {
-        return userRepository.user(tenantId, identifier);
+        UserIdentifierVO user = userRepository.user(tenantId, identifier);
+        AssertUtil.isNull(user, UserMsg.USER_NOT_FOUND.getMsg());
+        AssertUtil.isTrue(user.getIsBinding(), UserMsg.USER_BINDING.getMsg());
+        AssertUtil.isTrue(user.getIsVerified(), UserMsg.USER_VERIFIED.getMsg());
+        AssertUtil.isTrue(UserStatus.NORMAL.equals(user.getStatus()), UserMsg.USER_VERIFIED.getMsg());
+        return user;
     }
 
     @Override

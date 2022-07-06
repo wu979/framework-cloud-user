@@ -1,7 +1,7 @@
 package com.framework.cloud.user.domain.feign;
 
 import com.framework.cloud.common.result.Result;
-import com.framework.cloud.platform.common.vo.SettingInfoVO;
+import com.framework.cloud.user.common.rpc.SettingInfoVO;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 
