@@ -1,4 +1,4 @@
-package com.framework.cloud.user.domain.service.impl;
+package com.framework.cloud.user.infrastructure.service;
 
 import com.framework.cloud.tree.TreeFeature;
 import com.framework.cloud.user.common.vo.RolePermissionTreeVO;

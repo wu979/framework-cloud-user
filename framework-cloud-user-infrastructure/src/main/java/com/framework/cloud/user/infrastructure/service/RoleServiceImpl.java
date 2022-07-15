@@ -1,4 +1,4 @@
-package com.framework.cloud.user.domain.service.impl;
+package com.framework.cloud.user.infrastructure.service;
 
 import cn.hutool.core.util.ObjectUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;

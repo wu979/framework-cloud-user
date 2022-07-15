@@ -1,4 +1,4 @@
-package com.framework.cloud.user.domain.service.impl;
+package com.framework.cloud.user.infrastructure.service;
 
 import com.framework.cloud.user.domain.repository.UserRoleRepository;
 import com.framework.cloud.user.domain.service.UserRoleService;

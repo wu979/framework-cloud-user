@@ -1,4 +1,4 @@
-package com.framework.cloud.user.domain.service.impl;
+package com.framework.cloud.user.infrastructure.service;
 
 import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.util.ObjectUtil;
@@ -9,7 +9,7 @@ import com.framework.cloud.common.result.Result;
 import com.framework.cloud.common.utils.AssertUtil;
 import com.framework.cloud.common.utils.CopierUtil;
 import com.framework.cloud.tree.TreeFeature;
-import com.framework.cloud.user.common.constant.CacheConstant;
+import com.framework.cloud.user.common.constant.UserConstant;
 import com.framework.cloud.user.common.dto.PermissionDTO;
 import com.framework.cloud.user.common.msg.UserMsg;
 import com.framework.cloud.user.common.rpc.SettingInfoVO;
@@ -51,7 +51,7 @@ public class PermissionServiceImpl implements PermissionService {
     }
 
     @Override
-    @Lock(key = "'" + CacheConstant.PERMISSION + "'+#param.parentId", waitTime = 10)
+    @Lock(key = "'" + UserConstant.PERMISSION + "'+#param.parentId", waitTime = 10)
     @Transactional(rollbackFor = Exception.class)
     public boolean save(PermissionDTO param) {
         Permission exist = permissionRepository.getByCode(param.getCode());
@@ -74,7 +74,7 @@ public class PermissionServiceImpl implements PermissionService {
     }
 
     @Override
-    @Lock(key = "'" + CacheConstant.PERMISSION + "'+#id", waitTime = 10)
+    @Lock(key = "'" + UserConstant.PERMISSION + "'+#id", waitTime = 10)
     @Transactional(rollbackFor = Exception.class)
     public boolean remove(Long id) {
         String errorMsg = UserMsg.PERMISSION_DELETE_ERROR.getMsg();

@@ -5,7 +5,7 @@ package com.framework.cloud.user.common.constant;
  *
  * @author wusiwei
  */
-public class CacheConstant {
+public class UserConstant {
 
     public static final String PERMISSION = "permission:";
 

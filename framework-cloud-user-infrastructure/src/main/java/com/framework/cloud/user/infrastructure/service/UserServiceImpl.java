@@ -1,4 +1,4 @@
-package com.framework.cloud.user.domain.service.impl;
+package com.framework.cloud.user.infrastructure.service;
 import com.framework.cloud.common.base.PageVO;
 import com.framework.cloud.common.utils.AssertUtil;
 import com.framework.cloud.mybatis.utils.SnowflakeUtil;
