@@ -51,4 +51,16 @@ public class ElasticController {
         }
         return R.success();
     }
+
+    @GetMapping("/delete")
+    public Result<Void> delete() {
+        ElasticResponse<Boolean> response = elastic.deleteIndex(TestModel.class);
+        if (!response.ok()) {
+            throw new BizException("error");
+        }
+        if (!response.getData()) {
+            throw new BizException(response.getMsg());
+        }
+        return R.success();
+    }
 }

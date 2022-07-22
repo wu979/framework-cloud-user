@@ -16,7 +16,7 @@ import java.util.List;
  */
 @Data
 @FieldNameConstants
-@ElasticDeclare(indexName = "index-test-model", shards = 3, replicas = 2)
+@ElasticDeclare(indexName = "index-test-model", shards = 3, replicas = 2, settingPath = "settings.json")
 public class TestModel {
 
     @ElasticId
