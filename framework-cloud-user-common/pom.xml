@@ -24,5 +24,10 @@
             <artifactId>tree-framework-cloud-starter</artifactId>
             <version>${tree.framework.cloud.starter.version}</version>
         </dependency>
+        <dependency>
+            <groupId>com.framework.cloud</groupId>
+            <artifactId>swagger-framework-cloud-starter</artifactId>
+            <version>${swagger.framework.cloud.starter.version}</version>
+        </dependency>
     </dependencies>
 </project>

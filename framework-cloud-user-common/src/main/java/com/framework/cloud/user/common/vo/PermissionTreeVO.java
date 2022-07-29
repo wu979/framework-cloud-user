@@ -1,6 +1,7 @@
 package com.framework.cloud.user.common.vo;
 
 import com.framework.cloud.tree.binary.BinaryTree;
+import com.framework.cloud.user.common.enums.PermissionType;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -22,7 +23,7 @@ public class PermissionTreeVO extends BinaryTree<PermissionTreeVO, Long, Integer
     private String code;
 
     @ApiModelProperty(value = "权限类型")
-    private String type;
+    private PermissionType type;
 
     @ApiModelProperty(value = "权限图标")
     private String icon;

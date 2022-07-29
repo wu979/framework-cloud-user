@@ -46,9 +46,9 @@ public class UserInfoVO extends BaseVO {
     @ApiModelProperty(value = "头像url")
     private String avatar;
 
-    @ApiModelProperty(value = "用户状态（ CANCELLATION=注销，NORMAL=正常，DISABLE=禁用 ）")
+    @ApiModelProperty(value = "用户状态")
     private UserStatus status;
 
-    @ApiModelProperty(value = "身份类型（MOBILE:用户名,USERNAME:手机号,EMAIL:邮箱,WX:微信,ZFB:支付宝）")
+    @ApiModelProperty(value = "身份类型")
     private UserIdentityType identityType;
 }
