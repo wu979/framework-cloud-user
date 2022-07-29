@@ -4,12 +4,14 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import com.framework.cloud.common.base.BaseEnum;
 import com.framework.cloud.swagger.annotation.SwaggerDisplayEnum;
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 
 /**
  * 用户状态
  *
  * @author wusiwei
  */
+@Getter
 @AllArgsConstructor
 @JsonFormat(shape = JsonFormat.Shape.OBJECT)
 @SwaggerDisplayEnum
@@ -23,16 +25,6 @@ public enum UserStatus implements BaseEnum<String> {
 
     private final int code;
     private final String label;
-
-    @Override
-    public int getCode() {
-        return this.code;
-    }
-
-    @Override
-    public String getLabel() {
-        return this.label;
-    }
 
     @Override
     public String getValue() {
