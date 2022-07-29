@@ -6,6 +6,7 @@ import com.framework.cloud.common.result.R;
 import com.framework.cloud.common.result.Result;
 import com.framework.cloud.user.common.dto.PermissionDTO;
 import com.framework.cloud.user.common.vo.PermissionInfoVO;
+import com.framework.cloud.user.common.vo.PermissionRoleListVO;
 import com.framework.cloud.user.common.vo.PermissionTreeVO;
 import com.framework.cloud.user.domain.service.PermissionService;
 import io.swagger.annotations.Api;
@@ -32,6 +33,12 @@ public class PermissionController {
 
     @Resource
     private PermissionService permissionService;
+
+    @ApiOperation(value = "权限列表")
+    @GetMapping(value = "/list")
+    public Result<List<PermissionRoleListVO>> list() {
+        return R.success(permissionService.list());
+    }
 
     @ApiOperation(value = "权限树")
     @GetMapping(value = "/tree")

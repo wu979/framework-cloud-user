@@ -14,6 +14,15 @@
         role_id, permission_id, tenant_id
     </sql>
 
+    <select id="findByPermissionId" resultType="com.framework.cloud.user.common.vo.RolePermissionListVO">
+        select
+            distinct rp.permission_id, rp.tenant_id, rp.role_id, r.name, r.code
+        from t_role_permission rp
+        left join t_role r on rp.role_id = r.id
+        where r.deleted = 1
+        and rp.permission_id = #{permissionId,jdbcType=BIGINT}
+    </select>
+
     <select id="tree" resultType="com.framework.cloud.user.common.vo.RolePermissionTreeVO">
         select
             tp.id, tp.name, tp.code, tp.type, tp.`level`,

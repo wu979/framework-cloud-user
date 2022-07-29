@@ -14,6 +14,7 @@ import com.framework.cloud.user.common.dto.PermissionDTO;
 import com.framework.cloud.user.common.msg.UserMsg;
 import com.framework.cloud.user.common.rpc.SettingInfoVO;
 import com.framework.cloud.user.common.vo.PermissionInfoVO;
+import com.framework.cloud.user.common.vo.PermissionRoleListVO;
 import com.framework.cloud.user.common.vo.PermissionTreeVO;
 import com.framework.cloud.user.domain.entity.Permission;
 import com.framework.cloud.user.domain.feign.PlatFormFeignService;
@@ -38,6 +39,11 @@ public class PermissionServiceImpl implements PermissionService {
     private final TreeFeature<PermissionTreeVO, Long, Integer> treeFeature;
     private final PermissionRepository permissionRepository;
     private final PlatFormFeignService platFormFeignService;
+
+    @Override
+    public List<PermissionRoleListVO> list() {
+        return permissionRepository.listAll();
+    }
 
     @Override
     public List<PermissionTreeVO> tree(String query) {

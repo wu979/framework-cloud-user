@@ -8,6 +8,7 @@ import com.framework.cloud.user.common.enums.ArithmeticEnum;
 import com.framework.cloud.user.common.enums.DirectionEnum;
 import com.framework.cloud.user.common.enums.JudgeEnum;
 import com.framework.cloud.user.common.vo.PermissionInfoVO;
+import com.framework.cloud.user.common.vo.PermissionRoleListVO;
 import com.framework.cloud.user.common.vo.PermissionTreeVO;
 import com.framework.cloud.user.domain.entity.Permission;
 import com.framework.cloud.user.domain.repository.PermissionRepository;
@@ -32,8 +33,12 @@ public class PermissionRepositoryImpl extends BaseRepositoryImpl<PermissionMappe
     private final PermissionConverter permissionConverter;
 
     @Override
+    public List<PermissionRoleListVO> listAll() {
+        return this.baseMapper.listAll();
+    }
+
+    @Override
     public List<PermissionTreeVO> listTree(String query) {
-        Long tenantId = 1L;
         List<Permission> list;
         if (StringUtil.isNotEmpty(query)) {
             LambdaQueryWrapper<Permission> wrapper = new LambdaQueryWrapper<>();

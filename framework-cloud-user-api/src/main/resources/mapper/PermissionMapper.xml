@@ -26,9 +26,25 @@
         <result column="version" property="version"/>
     </resultMap>
 
+    <resultMap id="ListResultMap" type="com.framework.cloud.user.common.vo.PermissionRoleListVO">
+        <id column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="code" property="code"/>
+        <result column="type" property="type"/>
+        <result column="path" property="path"/>
+        <collection property="rolePermissionList" ofType="java.lang.Long" column="id" javaType="java.util.List"
+                    select="com.framework.cloud.user.infrastructure.mapper.RolePermissionMapper.findByPermissionId"
+        />
+    </resultMap>
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
         id, name, code, type, icon, sort, level, left, right, path, parent_id, trace_id, is_show, is_init, create_id, update_id, create_time, update_time, deleted, version
     </sql>
 
+    <select id="listAll" resultMap="ListResultMap">
+        select
+            p.id, p.name, p.code, p.type, p.path
+        from t_permission p
+        where p.deleted = 1
+    </select>
 </mapper>

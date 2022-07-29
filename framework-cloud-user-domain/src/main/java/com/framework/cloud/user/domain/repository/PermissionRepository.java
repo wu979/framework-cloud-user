@@ -6,6 +6,7 @@ import com.framework.cloud.user.common.enums.ArithmeticEnum;
 import com.framework.cloud.user.common.enums.DirectionEnum;
 import com.framework.cloud.user.common.enums.JudgeEnum;
 import com.framework.cloud.user.common.vo.PermissionInfoVO;
+import com.framework.cloud.user.common.vo.PermissionRoleListVO;
 import com.framework.cloud.user.common.vo.PermissionTreeVO;
 import com.framework.cloud.user.domain.entity.Permission;
 
@@ -18,6 +19,12 @@ import java.util.List;
  */
 public interface PermissionRepository extends BaseRepository<Permission> {
 
+    /**
+     * 权限 列表
+     *
+     * @return 列表
+     */
+    List<PermissionRoleListVO> listAll();
     /**
      * 权限 树
      *

@@ -22,9 +22,8 @@ public interface UserMapper extends BaseMapper<User> {
     /**
      * 排除租户拦截器 {@link com.baomidou.mybatisplus.annotation.InterceptorIgnore}
      *
-     * @param tenantId
-     * @param identifier
-     * @return
+     * @param tenantId 租户id
+     * @param identifier 唯一标识
      */
     @InterceptorIgnore(tenantLine = "true")
     UserIdentifierVO user(@Param("tenantId") Long tenantId, @Param("identifier") String identifier);

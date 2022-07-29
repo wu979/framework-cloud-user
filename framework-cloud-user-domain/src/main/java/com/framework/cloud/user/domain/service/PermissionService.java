@@ -2,6 +2,7 @@ package com.framework.cloud.user.domain.service;
 
 import com.framework.cloud.user.common.dto.PermissionDTO;
 import com.framework.cloud.user.common.vo.PermissionInfoVO;
+import com.framework.cloud.user.common.vo.PermissionRoleListVO;
 import com.framework.cloud.user.common.vo.PermissionTreeVO;
 
 import java.util.List;
@@ -12,6 +13,13 @@ import java.util.List;
  * @author wusiwei
  */
 public interface PermissionService {
+
+    /**
+     * 权限 列表
+     *
+     * @return 列表
+     */
+    List<PermissionRoleListVO> list();
 
     /**
      * 权限 树
