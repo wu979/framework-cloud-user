@@ -1,6 +1,5 @@
 package com.framework.cloud.user.common.vo;
 
-import com.framework.cloud.user.common.enums.PermissionType;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
@@ -24,7 +23,7 @@ public class PermissionRoleListVO {
     private String code;
 
     @ApiModelProperty(value = "权限类型")
-    private PermissionType type;
+    private String type;
 
     @ApiModelProperty(value = "请求路径")
     private String path;
