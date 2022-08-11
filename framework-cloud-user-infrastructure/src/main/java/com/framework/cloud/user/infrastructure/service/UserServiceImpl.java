@@ -67,6 +67,9 @@ public class UserServiceImpl implements UserService {
         entity.setIntroduction("wwwwwwwwww");
         entity.setAvatar("fff");
         entity.setStatus(UserStatus.NORMAL);
+        entity.setTenantId(1539534613520924673L);
+        entity.setCreateId(entity.getId());
+        entity.setUpdateId(entity.getId());
 
         UserAuth userAuth = new UserAuth();
         userAuth.setUserId(entity.getId());
@@ -77,6 +80,9 @@ public class UserServiceImpl implements UserService {
         userAuth.setIsBinding(true);
         userAuth.setVerifiedTime(System.currentTimeMillis());
         userAuth.setUnBindingTime(System.currentTimeMillis());
+        userAuth.setTenantId(1539534613520924673L);
+        userAuth.setCreateId(entity.getId());
+        userAuth.setUpdateId(entity.getId());
         userRepository.save(entity);
         userAuthRepository.save(userAuth);
         return true;
