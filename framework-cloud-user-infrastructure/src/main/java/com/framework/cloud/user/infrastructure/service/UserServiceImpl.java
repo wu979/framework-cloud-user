@@ -13,12 +13,15 @@ import com.framework.cloud.user.common.vo.UserInfoVO;
 import com.framework.cloud.user.common.vo.UserPageVO;
 import com.framework.cloud.user.domain.entity.User;
 import com.framework.cloud.user.domain.entity.UserAuth;
+import com.framework.cloud.user.domain.feign.PlatFormFeignService;
 import com.framework.cloud.user.domain.repository.UserAuthRepository;
 import com.framework.cloud.user.domain.repository.UserRepository;
 import com.framework.cloud.user.domain.service.UserService;
+import io.seata.spring.annotation.GlobalTransactional;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import javax.servlet.http.HttpServletRequest;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -31,8 +34,10 @@ import java.util.List;
 @AllArgsConstructor
 public class UserServiceImpl implements UserService {
 
+    private final HttpServletRequest httpServletRequest;
     private final UserRepository userRepository;
     private final UserAuthRepository userAuthRepository;
+    private final PlatFormFeignService platFormFeignService;
 
     @Override
     public PageVO<UserPageVO> page(UserPageDTO param) {
@@ -55,6 +60,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    @GlobalTransactional(rollbackFor = Exception.class)
     public boolean saveUpdate(UserDTO param) {
         User entity = new User();
         entity.setId(SnowflakeUtil.nextId());
@@ -85,6 +91,7 @@ public class UserServiceImpl implements UserService {
         userAuth.setUpdateId(entity.getId());
         userRepository.save(entity);
         userAuthRepository.save(userAuth);
+        int i = 1 /0;
         return true;
     }
 
