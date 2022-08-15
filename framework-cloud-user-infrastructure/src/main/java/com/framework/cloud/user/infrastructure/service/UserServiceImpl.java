@@ -1,7 +1,10 @@
 package com.framework.cloud.user.infrastructure.service;
+
 import com.framework.cloud.common.base.PageVO;
+import com.framework.cloud.common.result.Result;
 import com.framework.cloud.common.utils.AssertUtil;
 import com.framework.cloud.mybatis.utils.SnowflakeUtil;
+import com.framework.cloud.user.common.dto.PayChannelDTO;
 import com.framework.cloud.user.common.dto.UserDTO;
 import com.framework.cloud.user.common.dto.UserPageDTO;
 import com.framework.cloud.user.common.enums.UserIdentityType;
@@ -17,8 +20,11 @@ import com.framework.cloud.user.domain.feign.PlatFormFeignService;
 import com.framework.cloud.user.domain.repository.UserAuthRepository;
 import com.framework.cloud.user.domain.repository.UserRepository;
 import com.framework.cloud.user.domain.service.UserService;
+import io.seata.core.context.RootContext;
 import io.seata.spring.annotation.GlobalTransactional;
 import lombok.AllArgsConstructor;
+import org.apache.shardingsphere.transaction.annotation.ShardingSphereTransactionType;
+import org.apache.shardingsphere.transaction.core.TransactionType;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletRequest;
@@ -60,15 +66,16 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    @GlobalTransactional(rollbackFor = Exception.class)
+    @GlobalTransactional
+    @ShardingSphereTransactionType(TransactionType.BASE)
     public boolean saveUpdate(UserDTO param) {
         User entity = new User();
         entity.setId(SnowflakeUtil.nextId());
         entity.setSex(UserSexType.MAN);
-        entity.setEmail("18683789594@163.com");
-        entity.setMobile("18683789594");
-        entity.setUsername("979");
-        entity.setNickname("979");
+        entity.setEmail("13881666963@163.com");
+        entity.setMobile("13881666963");
+        entity.setUsername("888");
+        entity.setNickname("888");
         entity.setBirthday(LocalDate.now());
         entity.setIntroduction("wwwwwwwwww");
         entity.setAvatar("fff");
@@ -80,7 +87,7 @@ public class UserServiceImpl implements UserService {
         UserAuth userAuth = new UserAuth();
         userAuth.setUserId(entity.getId());
         userAuth.setIdentityType(UserIdentityType.MOBILE);
-        userAuth.setIdentifier("18683789594");
+        userAuth.setIdentifier("13881666963");
         userAuth.setCredential("wsw979");
         userAuth.setIsVerified(true);
         userAuth.setIsBinding(true);
@@ -91,7 +98,24 @@ public class UserServiceImpl implements UserService {
         userAuth.setUpdateId(entity.getId());
         userRepository.save(entity);
         userAuthRepository.save(userAuth);
-        int i = 1 /0;
+
+        String xid = RootContext.getXID();
+        System.out.println(xid);
+        PayChannelDTO channelDTO = new PayChannelDTO();
+        channelDTO.setCode("111111");
+        channelDTO.setName("111111");
+        channelDTO.setType("WX");
+        channelDTO.setAppKey("1");
+        channelDTO.setAppSecret("1");
+        channelDTO.setPrivateKey("1");
+        channelDTO.setPublicKey("1");
+        channelDTO.setExternalPublicKey("1");
+        channelDTO.setRemarks("1");
+        channelDTO.setEnable(false);
+
+        //TODO   seata + shardingjdbc 下游不回滚 空了看
+        Result<Boolean> save = platFormFeignService.save(channelDTO);
+        int  i = 1 / 0;
         return true;
     }
 
