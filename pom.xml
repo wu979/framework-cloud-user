@@ -26,6 +26,7 @@
         <executors.framework.cloud.starter.version>1.0.0</executors.framework.cloud.starter.version>
         <elasticsearch.framework.cloud.starter.version>1.0.0</elasticsearch.framework.cloud.starter.version>
         <seate.framework.cloud.starter.version>1.0.0</seate.framework.cloud.starter.version>
+        <enums.framework.cloud.starter.version>1.0.0</enums.framework.cloud.starter.version>
     </properties>
 
     <dependencyManagement>
