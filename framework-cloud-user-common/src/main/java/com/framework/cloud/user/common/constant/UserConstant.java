@@ -1,8 +1,6 @@
 package com.framework.cloud.user.common.constant;
 
 /**
- *
- *
  * @author wusiwei
  */
 public class UserConstant {

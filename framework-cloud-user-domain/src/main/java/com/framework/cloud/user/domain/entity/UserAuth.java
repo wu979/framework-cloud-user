@@ -22,7 +22,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @TableName("t_user_auth")
-@ApiModel(value="用户认证方式对象", description="用户认证方式")
+@ApiModel(value = "用户认证方式对象", description = "用户认证方式")
 public class UserAuth extends BaseTenant {
 
     private static final long serialVersionUID = 1L;

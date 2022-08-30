@@ -12,7 +12,9 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum UserMsg {
 
-    /** 异常消息 */
+    /**
+     * 异常消息
+     */
     USER_NOT_FOUND("账号或密码错误"),
     USER_VERIFIED("认证后授权"),
     USER_BINDING("绑定后授权"),

@@ -115,7 +115,7 @@ public class UserServiceImpl implements UserService {
 
         //TODO   seata + shardingjdbc 下游不回滚 空了看
         Result<Boolean> save = platFormFeignService.save(channelDTO);
-        int  i = 1 / 0;
+        int i = 1 / 0;
         return true;
     }
 

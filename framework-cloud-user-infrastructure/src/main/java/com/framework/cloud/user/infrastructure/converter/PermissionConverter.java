@@ -22,6 +22,7 @@ public interface PermissionConverter {
      * @return 详情
      */
     PermissionInfoVO info(Permission permission);
+
     /**
      * 权限 集合转换
      *

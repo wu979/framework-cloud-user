@@ -25,7 +25,7 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 @TableName("t_user")
-@ApiModel(value="用户对象", description="用户")
+@ApiModel(value = "用户对象", description = "用户")
 public class User extends BaseTenant {
 
     private static final long serialVersionUID = 1L;

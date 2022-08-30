@@ -25,6 +25,7 @@ public interface PermissionRepository extends BaseRepository<Permission> {
      * @return 列表
      */
     List<PermissionRoleListVO> listAll();
+
     /**
      * 权限 树
      *

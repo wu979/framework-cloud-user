@@ -34,7 +34,7 @@ public interface UserService {
     /**
      * 查询用户
      *
-     * @param tenantId 租户id
+     * @param tenantId   租户id
      * @param identifier 唯一凭证
      * @return 用户
      */

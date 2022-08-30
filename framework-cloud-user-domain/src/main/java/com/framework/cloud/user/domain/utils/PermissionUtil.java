@@ -9,8 +9,6 @@ import com.framework.cloud.user.domain.entity.Permission;
 import java.util.Objects;
 
 /**
- *
- *
  * @author wusiwei
  */
 public class PermissionUtil {
@@ -28,8 +26,8 @@ public class PermissionUtil {
     /**
      * 构建权限
      *
-     * @param parent  父级
-     * @param param 参数
+     * @param parent 父级
+     * @param param  参数
      * @return 权限
      */
     public static Permission buildPermission(Permission parent, PermissionDTO param) {

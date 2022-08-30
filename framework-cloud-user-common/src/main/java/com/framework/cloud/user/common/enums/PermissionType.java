@@ -17,7 +17,9 @@ import lombok.Getter;
 @SwaggerDisplayEnum
 public enum PermissionType implements BaseEnum<String> {
 
-    /** code 第三方枚举 value 数据库 label 汉译 */
+    /**
+     * code 第三方枚举 value 数据库 label 汉译
+     */
     SYSTEM(0, "系统"),
     MENU(1, "菜单"),
     BUTTON(2, "按钮"),

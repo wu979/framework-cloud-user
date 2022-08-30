@@ -23,7 +23,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @TableName("t_permission")
-@ApiModel(value="权限对象", description="权限")
+@ApiModel(value = "权限对象", description = "权限")
 public class Permission extends BaseEntity {
 
     private static final long serialVersionUID = 1L;

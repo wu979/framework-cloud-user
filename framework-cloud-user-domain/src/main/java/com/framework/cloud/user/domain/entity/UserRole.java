@@ -16,7 +16,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @TableName("t_user_role")
-@ApiModel(value="用户角色关联对象", description="用户角色关联")
+@ApiModel(value = "用户角色关联对象", description = "用户角色关联")
 public class UserRole {
 
     private static final long serialVersionUID = 1L;

@@ -1,10 +1,8 @@
 package com.framework.cloud.user.infrastructure.converter;
 
-import com.framework.cloud.user.common.vo.*;
+import com.framework.cloud.user.common.vo.UserRoleInfoVO;
 import com.framework.cloud.user.domain.entity.UserRole;
 import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
-import org.mapstruct.Mappings;
 
 /**
  * 用户角色关联 转换器

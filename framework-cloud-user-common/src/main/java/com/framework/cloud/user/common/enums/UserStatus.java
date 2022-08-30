@@ -17,10 +17,12 @@ import lombok.Getter;
 @SwaggerDisplayEnum
 public enum UserStatus implements BaseEnum<String> {
 
-    /** code 第三方枚举 value 数据库 label 汉译 */
-    CANCELLATION(0,"注销"),
-    NORMAL(1,"正常"),
-    DISABLE(2,"禁用"),
+    /**
+     * code 第三方枚举 value 数据库 label 汉译
+     */
+    CANCELLATION(0, "注销"),
+    NORMAL(1, "正常"),
+    DISABLE(2, "禁用"),
     ;
 
     private final int code;

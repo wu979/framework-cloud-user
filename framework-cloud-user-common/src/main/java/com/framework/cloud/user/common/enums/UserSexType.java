@@ -17,10 +17,11 @@ import lombok.Getter;
 @SwaggerDisplayEnum
 public enum UserSexType implements BaseEnum<String> {
 
-    /** code 第三方枚举 value 数据库 label 汉译 */
+    /**
+     * code 第三方枚举 value 数据库 label 汉译
+     */
     MAN(0, "男"),
-    WOMAN(1, "女")
-    ;
+    WOMAN(1, "女");
     private final int code;
     private final String label;
 

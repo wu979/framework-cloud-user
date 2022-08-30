@@ -16,7 +16,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @TableName("t_role_permission")
-@ApiModel(value="角色权限关联对象", description="角色权限关联")
+@ApiModel(value = "角色权限关联对象", description = "角色权限关联")
 public class RolePermission {
 
     private static final long serialVersionUID = 1L;

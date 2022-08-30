@@ -17,7 +17,9 @@ import lombok.Getter;
 @SwaggerDisplayEnum
 public enum UserIdentityType implements BaseEnum<String> {
 
-    /** code 第三方枚举 value 数据库 label 汉译 */
+    /**
+     * code 第三方枚举 value 数据库 label 汉译
+     */
     MOBILE(0, "手机号"),
     USERNAME(1, "用户名"),
     EMAIL(2, "邮箱"),

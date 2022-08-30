@@ -21,7 +21,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @TableName("t_role")
-@ApiModel(value="角色对象", description="角色")
+@ApiModel(value = "角色对象", description = "角色")
 public class Role extends BaseTenant {
 
     private static final long serialVersionUID = 1L;

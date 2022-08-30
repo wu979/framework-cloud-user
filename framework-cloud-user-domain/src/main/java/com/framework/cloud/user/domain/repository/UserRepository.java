@@ -2,8 +2,10 @@ package com.framework.cloud.user.domain.repository;
 
 import com.framework.cloud.common.base.PageVO;
 import com.framework.cloud.mybatis.repository.BaseRepository;
-import com.framework.cloud.user.common.vo.*;
-import com.framework.cloud.user.common.dto.*;
+import com.framework.cloud.user.common.dto.UserPageDTO;
+import com.framework.cloud.user.common.vo.UserIdentifierVO;
+import com.framework.cloud.user.common.vo.UserInfoVO;
+import com.framework.cloud.user.common.vo.UserPageVO;
 import com.framework.cloud.user.domain.entity.User;
 
 /**
@@ -32,7 +34,7 @@ public interface UserRepository extends BaseRepository<User> {
     /**
      * 查询用户
      *
-     * @param tenantId 租户id
+     * @param tenantId   租户id
      * @param identifier 唯一凭证
      * @return 用户
      */

@@ -10,8 +10,6 @@ import org.springframework.data.elasticsearch.annotations.FieldType;
 import java.util.List;
 
 /**
- *
- *
  * @author wusiwei
  */
 @Data
