@@ -21,11 +21,11 @@ import com.framework.cloud.user.domain.repository.UserAuthRepository;
 import com.framework.cloud.user.domain.repository.UserRepository;
 import com.framework.cloud.user.domain.service.UserService;
 import io.seata.core.context.RootContext;
-import io.seata.spring.annotation.GlobalTransactional;
 import lombok.AllArgsConstructor;
 import org.apache.shardingsphere.transaction.annotation.ShardingSphereTransactionType;
 import org.apache.shardingsphere.transaction.core.TransactionType;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.servlet.http.HttpServletRequest;
 import java.time.LocalDate;
@@ -66,7 +66,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    @GlobalTransactional
+    @Transactional
     @ShardingSphereTransactionType(TransactionType.BASE)
     public boolean saveUpdate(UserDTO param) {
         User entity = new User();
@@ -80,9 +80,6 @@ public class UserServiceImpl implements UserService {
         entity.setIntroduction("wwwwwwwwww");
         entity.setAvatar("fff");
         entity.setStatus(UserStatus.NORMAL);
-        entity.setTenantId(1539534613520924673L);
-        entity.setCreateId(entity.getId());
-        entity.setUpdateId(entity.getId());
 
         UserAuth userAuth = new UserAuth();
         userAuth.setUserId(entity.getId());
@@ -93,14 +90,9 @@ public class UserServiceImpl implements UserService {
         userAuth.setIsBinding(true);
         userAuth.setVerifiedTime(System.currentTimeMillis());
         userAuth.setUnBindingTime(System.currentTimeMillis());
-        userAuth.setTenantId(1539534613520924673L);
-        userAuth.setCreateId(entity.getId());
-        userAuth.setUpdateId(entity.getId());
         userRepository.save(entity);
         userAuthRepository.save(userAuth);
-
-        String xid = RootContext.getXID();
-        System.out.println(xid);
+        System.out.println(RootContext.getXID());
         PayChannelDTO channelDTO = new PayChannelDTO();
         channelDTO.setCode("111111");
         channelDTO.setName("111111");
