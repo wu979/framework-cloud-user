@@ -21,11 +21,11 @@ import com.framework.cloud.user.domain.repository.UserAuthRepository;
 import com.framework.cloud.user.domain.repository.UserRepository;
 import com.framework.cloud.user.domain.service.UserService;
 import io.seata.core.context.RootContext;
+import io.seata.spring.annotation.GlobalTransactional;
 import lombok.AllArgsConstructor;
 import org.apache.shardingsphere.transaction.annotation.ShardingSphereTransactionType;
 import org.apache.shardingsphere.transaction.core.TransactionType;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import javax.servlet.http.HttpServletRequest;
 import java.time.LocalDate;
@@ -66,7 +66,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    @Transactional
+    @GlobalTransactional
     @ShardingSphereTransactionType(TransactionType.BASE)
     public boolean saveUpdate(UserDTO param) {
         User entity = new User();
@@ -104,8 +104,6 @@ public class UserServiceImpl implements UserService {
         channelDTO.setExternalPublicKey("1");
         channelDTO.setRemarks("1");
         channelDTO.setEnable(false);
-
-        //TODO   seata + shardingjdbc 下游不回滚 空了看
         Result<Boolean> save = platFormFeignService.save(channelDTO);
         int i = 1 / 0;
         return true;
