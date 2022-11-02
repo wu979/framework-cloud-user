@@ -27,7 +27,6 @@ import org.apache.shardingsphere.transaction.annotation.ShardingSphereTransactio
 import org.apache.shardingsphere.transaction.core.TransactionType;
 import org.springframework.stereotype.Service;
 
-import javax.servlet.http.HttpServletRequest;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -40,7 +39,6 @@ import java.util.List;
 @AllArgsConstructor
 public class UserServiceImpl implements UserService {
 
-    private final HttpServletRequest httpServletRequest;
     private final UserRepository userRepository;
     private final UserAuthRepository userAuthRepository;
     private final PlatFormFeignService platFormFeignService;
@@ -67,8 +65,24 @@ public class UserServiceImpl implements UserService {
 
     @Override
     @GlobalTransactional
-    @ShardingSphereTransactionType(TransactionType.BASE)
+    @ShardingSphereTransactionType(value = TransactionType.BASE)
     public boolean saveUpdate(UserDTO param) {
+        User entity = buildUser();
+        UserAuth userAuth = buildUserAuth(entity.getId());
+        userRepository.save(entity);
+        userAuthRepository.save(userAuth);
+        System.out.println(RootContext.getXID());
+        Result<Boolean> save = platFormFeignService.save(buildPayChannel());
+        int i = 1 / 0;
+        return true;
+    }
+
+    @Override
+    public boolean removes(List<Long> ids) {
+        return userRepository.removeByIds(ids);
+    }
+
+    private User buildUser() {
         User entity = new User();
         entity.setId(SnowflakeUtil.nextId());
         entity.setSex(UserSexType.MAN);
@@ -80,9 +94,12 @@ public class UserServiceImpl implements UserService {
         entity.setIntroduction("wwwwwwwwww");
         entity.setAvatar("fff");
         entity.setStatus(UserStatus.NORMAL);
+        return entity;
+    }
 
+    private UserAuth buildUserAuth(Long userId) {
         UserAuth userAuth = new UserAuth();
-        userAuth.setUserId(entity.getId());
+        userAuth.setUserId(userId);
         userAuth.setIdentityType(UserIdentityType.MOBILE);
         userAuth.setIdentifier("13881666963");
         userAuth.setCredential("wsw979");
@@ -90,9 +107,10 @@ public class UserServiceImpl implements UserService {
         userAuth.setIsBinding(true);
         userAuth.setVerifiedTime(System.currentTimeMillis());
         userAuth.setUnBindingTime(System.currentTimeMillis());
-        userRepository.save(entity);
-        userAuthRepository.save(userAuth);
-        System.out.println(RootContext.getXID());
+        return userAuth;
+    }
+
+    private PayChannelDTO buildPayChannel() {
         PayChannelDTO channelDTO = new PayChannelDTO();
         channelDTO.setCode("111111");
         channelDTO.setName("111111");
@@ -104,14 +122,6 @@ public class UserServiceImpl implements UserService {
         channelDTO.setExternalPublicKey("1");
         channelDTO.setRemarks("1");
         channelDTO.setEnable(false);
-        Result<Boolean> save = platFormFeignService.save(channelDTO);
-        int i = 1 / 0;
-        return true;
+        return channelDTO;
     }
-
-    @Override
-    public boolean removes(List<Long> ids) {
-        return userRepository.removeByIds(ids);
-    }
-
 }

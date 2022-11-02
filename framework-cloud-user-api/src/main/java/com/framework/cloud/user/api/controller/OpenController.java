@@ -6,10 +6,13 @@ import com.framework.cloud.common.utils.FastJsonUtil;
 import com.framework.cloud.event.publisher.ApplicationLocalPublisher;
 import com.framework.cloud.user.common.vo.PermissionRoleListVO;
 import com.google.common.collect.Lists;
+import io.seata.spring.annotation.GlobalTransactional;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.context.event.EventListener;
+import org.apache.shardingsphere.transaction.annotation.ShardingSphereTransactionType;
+import org.apache.shardingsphere.transaction.core.TransactionType;
+import org.springframework.transaction.event.TransactionalEventListener;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -37,6 +40,8 @@ public class OpenController {
 
     @ApiOperation(value = "事件")
     @GetMapping(value = "/event")
+    @GlobalTransactional
+    @ShardingSphereTransactionType(value = TransactionType.BASE)
     public Result<Boolean> event() {
         TestEvent event = new TestEvent(this, 1);
         applicationLocalPublisher.publish(event);
@@ -44,7 +49,7 @@ public class OpenController {
     }
 
 
-    @EventListener
+    @TransactionalEventListener
     public Result<Boolean> listener(TestEvent event) {
         log.info("执行本地事件消息：{}", FastJsonUtil.toJSONString(event));
         return R.success(true);

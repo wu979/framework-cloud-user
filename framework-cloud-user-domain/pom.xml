@@ -42,7 +42,7 @@
         <dependency>
             <groupId>com.framework.cloud</groupId>
             <artifactId>seata-framework-cloud-starter</artifactId>
-            <version>${seate.framework.cloud.starter.version}</version>
+            <version>${seata.framework.cloud.starter.version}</version>
         </dependency>
         <dependency>
             <groupId>com.framework.cloud</groupId>
