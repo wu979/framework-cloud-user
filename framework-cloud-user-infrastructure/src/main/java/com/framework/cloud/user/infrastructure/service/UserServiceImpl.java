@@ -1,6 +1,7 @@
 package com.framework.cloud.user.infrastructure.service;
 
 import com.framework.cloud.common.base.PageVO;
+import com.framework.cloud.common.exception.BizException;
 import com.framework.cloud.common.result.Result;
 import com.framework.cloud.common.utils.AssertUtil;
 import com.framework.cloud.mybatis.utils.SnowflakeUtil;
@@ -64,7 +65,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    @GlobalTransactional
+    @GlobalTransactional(rollbackFor = { Exception.class , BizException.class })
     @ShardingSphereTransactionType(value = TransactionType.BASE)
     public boolean saveUpdate(UserDTO param) {
         User entity = buildUser();
