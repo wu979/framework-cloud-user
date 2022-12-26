@@ -27,6 +27,7 @@ import lombok.AllArgsConstructor;
 import org.apache.shardingsphere.transaction.annotation.ShardingSphereTransactionType;
 import org.apache.shardingsphere.transaction.core.TransactionType;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -65,8 +66,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    @GlobalTransactional(rollbackFor = { Exception.class , BizException.class })
-    @ShardingSphereTransactionType(value = TransactionType.BASE)
+    @Transactional(rollbackFor = { Exception.class , BizException.class })
+    @ShardingSphereTransactionType(TransactionType.BASE)
     public boolean saveUpdate(UserDTO param) {
         User entity = buildUser();
         UserAuth userAuth = buildUserAuth(entity.getId());

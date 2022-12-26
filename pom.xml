@@ -17,6 +17,8 @@
     </modules>
 
     <properties>
+        <datasource.framework.cloud.starter.version>1.0.0</datasource.framework.cloud.starter.version>
+        <core.framework.cloud.starter.version>1.0.0</core.framework.cloud.starter.version>
         <common.framework.cloud.starter.version>1.0.0</common.framework.cloud.starter.version>
         <tree.framework.cloud.starter.version>1.0.0</tree.framework.cloud.starter.version>
         <mybatis.framework.cloud.starter.version>1.0.0</mybatis.framework.cloud.starter.version>
