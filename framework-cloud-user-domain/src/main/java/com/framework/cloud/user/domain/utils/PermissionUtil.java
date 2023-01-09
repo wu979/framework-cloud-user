@@ -2,7 +2,7 @@ package com.framework.cloud.user.domain.utils;
 
 import com.framework.cloud.common.enums.GlobalNumber;
 import com.framework.cloud.common.utils.CopierUtil;
-import com.framework.cloud.mybatis.utils.SnowflakeUtil;
+import com.framework.cloud.mybatis.utils.IdUtil;
 import com.framework.cloud.user.common.dto.PermissionDTO;
 import com.framework.cloud.user.domain.entity.Permission;
 
@@ -32,7 +32,7 @@ public class PermissionUtil {
      */
     public static Permission buildPermission(Permission parent, PermissionDTO param) {
         int left = GlobalNumber.ONE.getIntValue(), right = GlobalNumber.TWO.getIntValue(), level = GlobalNumber.ONE.getIntValue();
-        Long id = SnowflakeUtil.nextId();
+        Long id = IdUtil.getId();
         Permission permission = new Permission();
         CopierUtil.copyProperties(param, permission);
         permission.setId(id);

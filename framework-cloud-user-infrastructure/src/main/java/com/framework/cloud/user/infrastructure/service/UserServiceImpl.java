@@ -4,7 +4,7 @@ import com.framework.cloud.common.base.PageVO;
 import com.framework.cloud.common.exception.BizException;
 import com.framework.cloud.common.result.Result;
 import com.framework.cloud.common.utils.AssertUtil;
-import com.framework.cloud.mybatis.utils.SnowflakeUtil;
+import com.framework.cloud.mybatis.utils.IdUtil;
 import com.framework.cloud.user.common.dto.PayChannelDTO;
 import com.framework.cloud.user.common.dto.UserDTO;
 import com.framework.cloud.user.common.dto.UserPageDTO;
@@ -22,7 +22,6 @@ import com.framework.cloud.user.domain.repository.UserAuthRepository;
 import com.framework.cloud.user.domain.repository.UserRepository;
 import com.framework.cloud.user.domain.service.UserService;
 import io.seata.core.context.RootContext;
-import io.seata.spring.annotation.GlobalTransactional;
 import lombok.AllArgsConstructor;
 import org.apache.shardingsphere.transaction.annotation.ShardingSphereTransactionType;
 import org.apache.shardingsphere.transaction.core.TransactionType;
@@ -86,7 +85,7 @@ public class UserServiceImpl implements UserService {
 
     private User buildUser() {
         User entity = new User();
-        entity.setId(SnowflakeUtil.nextId());
+        entity.setId(IdUtil.getId());
         entity.setSex(UserSexType.MAN);
         entity.setEmail("13881666963@163.com");
         entity.setMobile("13881666963");
